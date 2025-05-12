@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recuperar Senha - Sistema Hospitalar</title>
+  <style>
+    :root {
+      --cor1: #ccffff;
+      --cor2: #99ffcc;
+      --cor3: #66cc99;
+      --cor4: #339966;
+      --cor5: #006633;
+      --error: #ff3333;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--cor1), var(--cor3));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .recovery-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0, 102, 51, 0.2);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .recovery-container h2 {
+      color: var(--cor5);
+      margin-bottom: 25px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--cor4);
+      font-weight: 600;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid var(--cor3);
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+
+    .btn-recovery {
+      background-color: var(--cor4);
+      color: white;
+      border: none;
+      padding: 14px;
+      width: 100%;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+    }
+
+    .btn-recovery:hover {
+      background-color: var(--cor5);
+    }
+
+    .back-link {
+      display: block;
+      margin-top: 20px;
+      color: var(--cor5);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="recovery-container">
+    <h2>Recuperar Senha</h2>
+    
+    <form id="recoveryForm">
+      <div class="form-group">
+        <label for="email">E-mail cadastrado</label>
+        <input type="email" id="email" required placeholder="Digite seu e-mail">
+      </div>
+      
+      <div class="form-group">
+        <label for="newPassword">Nova Senha</label>
+        <input type="password" id="newPassword" required placeholder="Digite a nova senha" minlength="6">
+      </div>
+      
+      <div class="form-group">
+        <label for="confirmPassword">Confirmar Nova Senha</label>
+        <input type="password" id="confirmPassword" required placeholder="Confirme a nova senha" minlength="6">
+      </div>
+      
+      <button type="submit" class="btn-recovery">Redefinir Senha</button>
+    </form>
+    
+    <a href="login.html" class="back-link">Voltar ao Login</a>
+  </div>
+
+  <script>
+    document.getElementById("recoveryForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      
+      const email = document.getElementById("email").value.trim();
+      const newPassword = document.getElementById("newPassword").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      
+      // Validação básica
+      if (!email || !newPassword || !confirmPassword) {
+        alert("Por favor, preencha todos os campos.");
+        return;
+      }
+      
+      if (newPassword !== confirmPassword) {
+        alert("As senhas não coincidem. Por favor, digite novamente.");
+        return;
+      }
+      
+      if (newPassword.length < 6) {
+        alert("A senha deve ter pelo menos 6 caracteres.");
+        return;
+      }
+      
+      // Simular envio (substitua por chamada real ao backend)
+      alert("Senha redefinida com sucesso para o e-mail: " + email);
+      
+      // Redirecionar de volta ao login após 2 segundos
+      setTimeout(() => {
+        window.location.href = "login.html";
+      }, 2000);
+    });
+  </script>
+
+</body>
+</html>

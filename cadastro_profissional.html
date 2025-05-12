@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro - Profissional da Saúde</title>
+  <style>
+    :root {
+      --cor1: #003366;
+      --cor2: #336699;
+      --cor3: #6699cc;
+      --cor4: #99ccff;
+      --cor5: #ccffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom right, var(--cor5), var(--cor3));
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .cadastro-container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 51, 102, 0.3);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .cadastro-container h2 {
+      text-align: center;
+      color: var(--cor1);
+      margin-bottom: 25px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--cor2);
+      font-weight: bold;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--cor3);
+      border-radius: 10px;
+    }
+
+    .btn-cadastrar {
+      width: 100%;
+      padding: 12px;
+      background-color: var(--cor2);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-cadastrar:hover {
+      background-color: var(--cor1);
+    }
+
+    .voltar {
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .voltar a {
+      text-decoration: none;
+      color: var(--cor1);
+      font-weight: bold;
+    }
+
+    .voltar a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cadastro-container">
+    <h2>Cadastro - Profissional da Saúde</h2>
+
+    <div class="form-group">
+      <label for="nome">Nome completo</label>
+      <input type="text" id="nome" required />
+    </div>
+
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input type="email" id="email" required />
+    </div>
+
+    <div class="form-group">
+      <label for="crm">CRM (registro profissional)</label>
+      <input type="text" id="crm" required />
+    </div>
+
+    <div class="form-group">
+      <label for="telefone">Telefone</label>
+      <input type="tel" id="telefone" required />
+    </div>
+
+    <div class="form-group">
+      <label for="cpf">CPF</label>
+      <input type="text" id="cpf" required maxlength="14" placeholder="000.000.000-00" />
+    </div>
+
+    <button class="btn-cadastrar" onclick="cadastrarProfissional()">Cadastrar</button>
+
+    <div class="voltar">
+      <p><a href="cadastro_gestao.html">Voltar ao login</a></p>
+    </div>
+  </div>
+
+  <script>
+    function cadastrarProfissional() {
+      const nome = document.getElementById("nome").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const crm = document.getElementById("crm").value.trim();
+      const telefone = document.getElementById("telefone").value.trim();
+      const cpf = document.getElementById("cpf").value.trim();
+
+      if (!nome || !email || !crm || !telefone || !cpf) {
+        alert("Por favor, preencha todos os campos obrigatórios.");
+        return;
+      }
+
+      alert("Profissional cadastrado com sucesso!");
+
+      // Aqui você pode salvar os dados no localStorage, ou enviar via backend futuramente
+
+      // Redireciona para a página de progresso médico
+      window.location.href = "progresso-medico.html";
+    }
+  </script>
+
+</body>
+</html>

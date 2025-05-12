@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boas-Vindas - Sistema de Gestão Hospitalar</title>
+  <style>
+    :root {
+      --cor1: #ccffff;
+      --cor2: #99ffcc;
+      --cor3: #66cc99;
+      --cor4: #339966;
+      --cor5: #006633;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom right, var(--cor1), var(--cor3));
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 102, 51, 0.2);
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+    }
+
+    .container h1 {
+      color: var(--cor5);
+      margin-bottom: 20px;
+    }
+
+    .container p {
+      color: var(--cor4);
+      font-size: 1.1em;
+      margin-bottom: 30px;
+    }
+
+    .btn-acessar {
+      background-color: var(--cor4);
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-acessar:hover {
+      background-color: var(--cor5);
+    }
+
+    @media (max-width: 500px) {
+      .container h1 {
+        font-size: 1.5em;
+      }
+
+      .container p {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Bem-vindo ao Sistema de Gestão Hospitalar</h1>
+    <p>Organize atendimentos, cadastros e serviços de saúde com eficiência.</p>
+    <button class="btn-acessar" onclick="acessarSistema()">Acessar Sistema</button>
+  </div>
+
+  <script>
+    function acessarSistema() {
+      // Quando estiver pronta, essa função pode redirecionar para a tela de login/cadastro
+      window.location.href = "login.html"; // Próxima página que você vai criar
+    }
+  </script>
+
+</body>
+</html>

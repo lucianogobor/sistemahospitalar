@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Sistema Hospitalar</title>
+  <style>
+    :root {
+      --cor1: #ccffff;
+      --cor2: #99ffcc;
+      --cor3: #66cc99;
+      --cor4: #339966;
+      --cor5: #006633;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom right, var(--cor1), var(--cor3));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 102, 51, 0.2);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .login-container h2 {
+      color: var(--cor5);
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--cor4);
+      font-weight: bold;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--cor3);
+      border-radius: 10px;
+    }
+
+    .btn-login {
+      background-color: var(--cor4);
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-login:hover {
+      background-color: var(--cor5);
+    }
+
+    .links {
+      margin-top: 20px;
+    }
+
+    .links p {
+      color: var(--cor4);
+      margin: 10px 0;
+    }
+
+    .links a {
+      color: var(--cor5);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+
+    .gestao-btn {
+      margin-top: 20px;
+      background-color: var(--cor2);
+      color: var(--cor5);
+      padding: 10px;
+      border: 2px solid var(--cor4);
+      border-radius: 10px;
+      width: 100%;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .gestao-btn:hover {
+      background-color: var(--cor3);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Login</h2>
+
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input type="email" id="email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" required>
+    </div>
+
+    <button class="btn-login" onclick="fazerLogin()">Entrar</button>
+
+    <div class="links">
+      <p>Não tem uma conta? <a href="cadastro_paciente.html">Criar conta como paciente</a></p>
+      <p>Já tem conta? <a href="recuperar_senha.html">Recuperar senha</a></p> <!-- Link corrigido -->
+    </div>
+
+    <button class="gestao-btn" onclick="abrirGestao()">Sou da Gestão de Saúde</button>
+  </div>
+
+  <script>
+    function fazerLogin() {
+      const email = document.getElementById("email").value.trim();
+      const senha = document.getElementById("senha").value.trim();
+
+      // Validação básica
+      if (!email || !senha) {
+        alert("Por favor, preencha todos os campos.");
+        return;
+      }
+
+      // Redireciona para agendamento.html
+      window.location.href = "agendamento.html";
+    }
+
+    function abrirGestao() {
+      window.location.href = "cadastro_gestao.html";
+    }
+
+    // Garantir que o link de cadastro funciona
+    document.getElementById("linkCadastro").addEventListener("click", function(e) {
+      e.preventDefault();
+      window.location.href = "cadastro_paciente.html";
+    });
+  </script>
+
+</body>
+</html>
